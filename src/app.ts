@@ -6,6 +6,7 @@ import * as core from '@actions/core';
 const sourcemap_directory = core.getInput('sourcemap_directory');
 const es_kibana_host = core.getInput('es_kibana_host');
 const es_api_key = core.getInput('es_api_key');
+const es_kibana_apm_endpoint = core.getInput('es_kibana_apm_endpoint');
 const service_version = core.getInput('service_version');
 
 async function postSourceMap(sourceMapPath: string) {
@@ -19,7 +20,7 @@ async function postSourceMap(sourceMapPath: string) {
       formData.append('service_version', service_version);
       formData.append('service_name', "patient-react");
       formData.append('bundle_filepath', bundlePath);
-       await axios.post(`${es_kibana_host}/api/apm/sourcemaps`, formData, {
+       await axios.post(`${es_kibana_host}/${es_kibana_apm_endpoint}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'kbn-xsrf': 'true',

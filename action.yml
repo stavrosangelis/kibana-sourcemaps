@@ -1,0 +1,19 @@
+name: "ElasticAPM Kibana Sourcemaps Action"
+description: "Publise sourcemaps to Kibana APM"
+
+inputs:
+  sourcemap_directory:
+    description: 'The directory where sourcemaps are bundled into'
+    required: true
+  es_kibana_host:
+    description: 'The URL to Kibana'
+    required: true
+  es_api_key:
+    description: 'An elastic API key'
+    required: true
+  es_kibana_apm_endpoint:
+    description: 'The APM endpoint to post the sourcemaps to, e.g. api/apm/sourcemaps'
+    required: true
+  service_version:
+    description: 'The APM service version'
+    required: true
