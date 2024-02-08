@@ -1,6 +1,8 @@
 name: "ElasticAPM Kibana Sourcemaps Action"
 description: "Publise sourcemaps to Kibana APM"
-
+branding:
+  icon: 'send'
+  color: 'blue'
 inputs:
   sourcemap_directory:
     description: 'The directory where sourcemaps are bundled into'
@@ -17,3 +19,6 @@ inputs:
   service_version:
     description: 'The APM service version'
     required: true
+runs:
+  using: 'node18'
+  main: 'dist/app.js'
